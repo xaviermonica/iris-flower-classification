@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Load the trained model (make sure you have a classifier model saved as 'iris_model.pkl')
-model = joblib.load("C:\\imp\\ml JUPYTER\\MY ML PROJECTS(BOOK)\\3.Deep learning\\ANN\\Recreation\\Iris\\Iris_RF.pkl")
+model = joblib.load("Iris_RF.pkl")
 
 # Title of the web app
 st.title("Iris Species Prediction")
