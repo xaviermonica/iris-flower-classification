@@ -50,4 +50,3 @@ species_map = {0: 'Iris-setosa', 1: 'Iris-versicolor', 2: 'Iris-virginica'}
 st.subheader('Prediction Probabilities')
 prob_df = pd.DataFrame(prediction_proba, columns=species_map.values())
 st.write(prob_df)
-p
