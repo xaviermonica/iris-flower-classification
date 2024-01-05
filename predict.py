@@ -6,6 +6,7 @@ import joblib
 model = joblib.load("Iris_RF.pkl")
 
 # Title of the web app
+def predict_page():
 st.title("Iris Species Prediction")
 
 # Sidebar for user input
