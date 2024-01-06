@@ -1,10 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-def main():
+def feedback_page():
     # Set the page layout and background color
-   
-    # Background color styling
     st.markdown(
         """
         <style>
@@ -62,8 +60,6 @@ def main():
 
     # Modern Rating System using Select Slider
     st.markdown("<h4 style='color: #4682b4;'>⭐ Rate your experience</h4>", unsafe_allow_html=True)
-    
-   
     star_labels = [f"{i}⭐" for i in range(1, 6)]
     
     # Create a select slider with star labels
@@ -108,5 +104,3 @@ def main():
         unsafe_allow_html=True
     )
 
-if __name__ == "__main__":
-    main()
