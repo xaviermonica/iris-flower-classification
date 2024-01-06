@@ -17,11 +17,21 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Sidebar Navigation with emojis 🌸
+# Sidebar Navigation with emojis 🌸 using Slider
 st.sidebar.title("🌼 Navigation")
-options = st.sidebar.radio("Go to", ["🏠 Home", "📊 Visualize", "🔍 Analyze", "🤖 Predict", "📚 About", "💬 Feedback"])
 
-# Navigation logic
+# Define the options for the slider
+slider_options = ["🏠 Home", "📊 Visualize", "🔍 Analyze", "🤖 Predict", "📚 About", "💬 Feedback"]
+
+# Sidebar slider for navigation
+options = st.sidebar.select_slider(
+    "Navigate to:",
+    options=slider_options,
+    value="🏠 Home",
+    format_func=lambda x: x
+)
+
+# Navigation logic based on slider value
 if options == "🏠 Home":
     st.title("🌸 Welcome to the Iris Species Prediction App! 🌸")
     st.markdown("""
