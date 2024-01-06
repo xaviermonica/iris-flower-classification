@@ -3,7 +3,7 @@ from visualize import visualize_page
 from analyze import analyze_page
 from predict import predict_page
 from about import about_page
-from feedback import feedback_page
+
 
 # Set app theme color using markdown styling
 st.markdown("""
