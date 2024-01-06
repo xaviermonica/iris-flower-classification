@@ -12,7 +12,7 @@ st.markdown("""
         background-color: #FFEBF0;
     }
     .main {
-        background-color: #FFF3E0;
+        background-color: #000000;
     }
     </style>
     """, unsafe_allow_html=True)
