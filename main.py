@@ -4,7 +4,6 @@ from analyze import analyze_page
 from predict import predict_page
 from about import about_page
 
-
 # Set app theme color using markdown styling
 st.markdown("""
     <style>
@@ -17,21 +16,19 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Sidebar Navigation with emojis 🌸 using Slider
+# Sidebar Navigation with emojis 🌸 using Selectbox
 st.sidebar.title("🌼 Navigation")
 
-# Define the options for the slider
-slider_options = ["🏠 Home", "📊 Visualize", "🔍 Analyze", "🤖 Predict", "📚 About", "💬 Feedback"]
+# Define the options for the selectbox
+selectbox_options = ["🏠 Home", "📊 Visualize", "🔍 Analyze", "🤖 Predict", "📚 About", "💬 Feedback"]
 
-# Sidebar slider for navigation
-options = st.sidebar.select_slider(
+# Sidebar selectbox for navigation (scrollable)
+options = st.sidebar.selectbox(
     "Navigate to:",
-    options=slider_options,
-    value="🏠 Home",
-    format_func=lambda x: x
+    options=selectbox_options
 )
 
-# Navigation logic based on slider value
+# Navigation logic based on selectbox value
 if options == "🏠 Home":
     st.title("🌸 Welcome to the Iris Species Prediction App! 🌸")
     st.markdown("""
