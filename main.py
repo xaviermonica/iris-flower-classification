@@ -93,7 +93,7 @@ if options == "🏠 Home":
         <div style="text-align: center; margin-top: 40px;">
             <p style="font-size: 1rem; color: #95a5a6;">
                 Built with passion by <strong>Devanik</strong> and powered by <strong>Streamlit</strong>.<br>
-                🌐 <a href="https://github.com/devanik" style="color: #8a2be2;" target="_blank">Explore More Projects on GitHub</a>
+                🌐 <a href="https://github.com/devanik21" style="color: #8a2be2;" target="_blank">Explore More Projects on GitHub</a>
             </p>
         </div>
         """, 
