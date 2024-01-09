@@ -17,10 +17,10 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 
-st.sidebar.image("iris3.png", caption="Iris ", use_column_width=True)
+
 # Sidebar Navigation with emojis 🌸 using Selectbox
 st.sidebar.title("🌼 Navigation")
-
+st.sidebar.image("iris3.png", caption="Iris ", use_column_width=True)
 # Define the options for the selectbox
 selectbox_options = ["🏠 Home", "📊 Visualize", "🔍 Analyze", "🤖 Predict", "📚 About", "💬 Feedback"]
 
