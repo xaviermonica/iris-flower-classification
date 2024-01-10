@@ -124,4 +124,4 @@ elif options == "💬 Feedback":
     feedback_page()
 
 
-st.image("iris3.png", caption="Iris ", use_column_width=True)
+
