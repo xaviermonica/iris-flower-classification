@@ -18,7 +18,7 @@ st.markdown("""
 
 
 st.image("iris3.jpg", caption="Iris ", use_column_width=True)
-st.sidebar.image("iris1.jpg", caption="Iris ", use_column_width=True)
+
 # Sidebar Navigation with emojis 🌸 using Selectbox
 st.sidebar.title("🌼 Navigation")
 
@@ -30,7 +30,7 @@ options = st.sidebar.selectbox(
     "Navigate to:",
     options=selectbox_options
 )
-
+st.sidebar.image("iris1.jpg", caption="Iris ", use_column_width=True)
 # Navigation logic based on selectbox value
 if options == "🏠 Home":
     # Professional Title with Gradient and Center Alignment
