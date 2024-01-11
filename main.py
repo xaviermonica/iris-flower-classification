@@ -16,7 +16,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-
+st.sidebar.image("iris2.jpg", caption="Iris ", use_column_width=True)
 st.image("iris3.jpg", caption="Iris ", use_column_width=True)
 
 # Sidebar Navigation with emojis 🌸 using Selectbox
