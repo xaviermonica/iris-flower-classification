@@ -126,5 +126,7 @@ elif options == "💬 Feedback":
 
 
 
-st.image("iris3.jpg", caption="Iris ", use_column_width=True)
-st.sidebar.image("iris1.jpg", caption="Iris ", use_column_width=True)
+st.image("iris3.jpg", use_column_width=True)
+st.image("iris2.jpg", use_column_width=True)
+st.sidebar.image("iris1.jpg",use_column_width=True)
+ 
