@@ -60,7 +60,7 @@ def predict_page():
     st.write(
         prob_df.style
         .background_gradient(cmap='coolwarm')  # Updated color map
-        .highlight_max(axis=1, color='lightbrown')  # Highlight max values in light green
+        .highlight_max(axis=1, color='lightpink')  # Highlight max values in light green
         .set_properties(**{'border': '1px solid black'})  # Add border to DataFrame
     )
     # Add a visual flair with a closing message
