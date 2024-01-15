@@ -57,12 +57,17 @@ def predict_page():
     prob_df = pd.DataFrame(prediction_proba, columns=species_map.values())
 
     # Style DataFrame
-    st.write(
-        prob_df.style
-        .background_gradient(cmap='coolwarm')  # Updated color map
-        .highlight_max(axis=1, color='lightpink')  # Highlight max values in light green
-        .set_properties(**{'border': '1px solid black'})  # Add border to DataFrame
-    )
+st.write(
+    prob_df.style
+    .background_gradient(cmap='cividis')  # Color map suitable for dark mode
+    .highlight_max(axis=1, color='#FF6347')  # Highlight max values in tomato red
+    .set_properties(**{
+        'border': '1px solid #444',  # Dark border color for better visibility
+        'color': 'white',  # Text color for readability
+        'background-color': '#333'  # Dark background for the cells
+    })  # Set properties for DataFrame styling
+)
+
     # Add a visual flair with a closing message
     st.markdown(
         """
