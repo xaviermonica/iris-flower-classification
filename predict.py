@@ -54,7 +54,7 @@ def predict_page():
     # Display prediction probabilities with formatted styling
     st.subheader('🔍 **Prediction Probabilities**')
     prob_df = pd.DataFrame(prediction_proba, columns=species_map.values())
-    st.write(prob_df.style.background_gradient(cmap='viridis').highlight_max(axis=1,color='lightblue'))
+    st.write(prob_df.style.background_gradient(cmap='viridis').highlight_max(axis=1,color='navyblue'))
 
     # Add a visual flair with a closing message
     st.markdown(
