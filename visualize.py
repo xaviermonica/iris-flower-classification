@@ -7,7 +7,7 @@ import seaborn as sns
 @st.cache_data
 def load_data():
     # Replace with your actual file path
-    file_path = "iris.csv"
+    file_path = "Iris.csv"
     df = pd.read_csv(file_path)
     return df
 
