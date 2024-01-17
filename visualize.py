@@ -12,7 +12,7 @@ def load_data():
     return df
 
 def visualize_page():
-    st.title("📊 Data Visualization")
+    
     
     # Load the dataset
     df = load_data()
