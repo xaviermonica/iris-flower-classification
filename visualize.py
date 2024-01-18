@@ -169,14 +169,32 @@ def visualize_page():
 
     
     # Andrews Curves
+import pandas as pd
+import numpy as np
+
+    # Andrews Curves
     elif plot_type == "Andrews Curves":
         st.subheader("Andrews Curves")
         
-        fig = plt.figure(figsize=(10, 6))
-        sns.andrews_curves(df, 'Species', palette='viridis')
+        # Function to compute Andrews curves
+        def andrews_curves(data, class_column):
+            # Convert categorical column to numeric
+            data[class_column] = pd.Categorical(data[class_column]).codes
+            data = data.set_index(class_column)
+            return data
+
+        # Prepare data
+        df_curves = andrews_curves(df.copy(), 'Species')
+        
+        # Plot Andrews curves
+        from pandas.plotting import andrews_curves as pd_andrews_curves
+        
+        fig, ax = plt.subplots(figsize=(12, 8))
+        pd_andrews_curves(df_curves, 'Species', ax=ax)
         plt.title('Andrews Curves')
+        plt.legend(title='Species')
         st.pyplot(fig)
-    
+
     # Count Plot
     elif plot_type == "Count Plot":
         st.subheader("Count Plot")
