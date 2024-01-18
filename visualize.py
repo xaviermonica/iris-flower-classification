@@ -119,15 +119,22 @@ def visualize_page():
         st.pyplot(fig)
     
     # Ridge Plot
+    # Ridge Plot
     elif plot_type == "Ridge Plot":
         st.subheader("Ridge Plot")
         column = st.sidebar.selectbox("Select Column", df.columns[1:-1])
         
-        fig = plt.figure(figsize=(10, 6))
-        sns.ridgeplot(data=df, x=column, hue='Species', palette='viridis')
-        plt.title(f'Ridge Plot of {column} by Species')
+        fig, ax = plt.subplots(figsize=(10, 6))
+        
+        # Plot KDE for each species
+        for species in df['Species'].unique():
+            subset = df[df['Species'] == species]
+            sns.kdeplot(data=subset, x=column, label=species, shade=True, alpha=0.6, ax=ax, palette='viridis')
+        
+        ax.set_title(f'Ridge Plot of {column} by Species')
+        ax.legend(title='Species')
         st.pyplot(fig)
-    
+
     # Hexbin Plot
     elif plot_type == "Hexbin Plot":
         st.subheader("Hexbin Plot")
