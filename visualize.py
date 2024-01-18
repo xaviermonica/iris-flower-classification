@@ -148,14 +148,25 @@ def visualize_page():
         st.pyplot(fig)
     
     # Lag Plot
+    # Lag Plot
     elif plot_type == "Lag Plot":
         st.subheader("Lag Plot")
         column = st.sidebar.selectbox("Select Column", df.columns[1:-1])
         
-        fig = plt.figure(figsize=(8, 6))
-        sns.lag_plot(df[column], lag=1)
-        plt.title(f'Lag Plot of {column}')
+        # Create lagged data
+        lag = 1
+        df_lag = df[[column]].copy()
+        df_lag['Lag'] = df_lag[column].shift(lag)
+        df_lag = df_lag.dropna()
+        
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.scatter(df_lag[column], df_lag['Lag'], alpha=0.7)
+        ax.set_xlabel(f'{column}')
+        ax.set_ylabel(f'Lag {lag} of {column}')
+        ax.set_title(f'Lag Plot of {column}')
+        
         st.pyplot(fig)
+
     
     # Andrews Curves
     elif plot_type == "Andrews Curves":
