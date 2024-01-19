@@ -169,8 +169,6 @@ def visualize_page():
 
     
     # Andrews Curves
-import pandas as pd
-import numpy as np
 
     # Andrews Curves
     elif plot_type == "Andrews Curves":
