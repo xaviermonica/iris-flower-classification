@@ -175,34 +175,6 @@ def visualize_page():
     # Andrews Curves
 
 
-    elif plot_type == "Andrews Curves":
-        st.subheader("Andrews Curves")
-        
-        # Verify the 'Species' column exists
-        if 'Species' not in df.columns:
-            st.error("The 'Species' column is missing from the dataset.")
-        else:
-            # Prepare data for Andrews Curves
-            df_curves = df.copy()
-            df_curves['Species'] = pd.Categorical(df_curves['Species']).codes
-            
-            # Plot Andrews curves
-            fig, ax = plt.subplots(figsize=(12, 8))
-            pd_andrews_curves(df_curves, 'Species', ax=ax)
-            plt.title('Andrews Curves')
-            plt.legend(title='Species')
-            st.pyplot(fig)
-
-        
-        # Plot Andrews curves
-        from pandas.plotting import andrews_curves as pd_andrews_curves
-        
-        fig, ax = plt.subplots(figsize=(12, 8))
-        pd_andrews_curves(df_curves, 'Species', ax=ax)
-        plt.title('Andrews Curves')
-        plt.legend(title='Species')
-        st.pyplot(fig)
-
     # Count Plot
     elif plot_type == "Count Plot":
         st.subheader("Count Plot")
