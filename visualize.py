@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import pandas as pd
+import matplotlib.pyplot as plt
+from pandas.plotting import andrews_curves as pd_andrews_curves
 # Load the dataset
 @st.cache_data
 def load_data():
@@ -171,18 +173,26 @@ def visualize_page():
     # Andrews Curves
 
     # Andrews Curves
+
+
     elif plot_type == "Andrews Curves":
         st.subheader("Andrews Curves")
         
-        # Function to compute Andrews curves
-        def andrews_curves(data, class_column):
-            # Convert categorical column to numeric
-            data[class_column] = pd.Categorical(data[class_column]).codes
-            data = data.set_index(class_column)
-            return data
+        # Verify the 'Species' column exists
+        if 'Species' not in df.columns:
+            st.error("The 'Species' column is missing from the dataset.")
+        else:
+            # Prepare data for Andrews Curves
+            df_curves = df.copy()
+            df_curves['Species'] = pd.Categorical(df_curves['Species']).codes
+            
+            # Plot Andrews curves
+            fig, ax = plt.subplots(figsize=(12, 8))
+            pd_andrews_curves(df_curves, 'Species', ax=ax)
+            plt.title('Andrews Curves')
+            plt.legend(title='Species')
+            st.pyplot(fig)
 
-        # Prepare data
-        df_curves = andrews_curves(df.copy(), 'Species')
         
         # Plot Andrews curves
         from pandas.plotting import andrews_curves as pd_andrews_curves
