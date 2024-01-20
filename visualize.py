@@ -196,11 +196,15 @@ def visualize_page():
     # Matrix Plot
     elif plot_type == "Matrix Plot":
         st.subheader("Matrix Plot")
-        
+
+        # Select only numeric columns for correlation matrix
+        numeric_df = df.select_dtypes(include=['float64', 'int64'])
+
         fig, ax = plt.subplots(figsize=(10, 8))
-        sns.heatmap(df.corr(), annot=True, cmap='coolwarm', ax=ax, fmt='.2f')
+        sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm', ax=ax, fmt='.2f')
         ax.set_title('Correlation Matrix Plot')
         st.pyplot(fig)
+
     
     # Pair Grid
     elif plot_type == "Pair Grid":
