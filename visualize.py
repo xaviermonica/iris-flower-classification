@@ -218,13 +218,16 @@ def visualize_page():
     # Heatmap
     elif plot_type == "Heatmap":
         st.subheader("Heatmap")
-        correlation_matrix = df.corr()
+        
+        # Filter out non-numeric columns
+        numeric_df = df.select_dtypes(include=['float64', 'int64'])
+        correlation_matrix = numeric_df.corr()
         
         fig, ax = plt.subplots(figsize=(10, 8))
         sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax, fmt='.2f')
         ax.set_title('Heatmap of Correlation Matrix')
         st.pyplot(fig)
-    
+
     # ECDF Plot
     elif plot_type == "ECDF Plot":
         st.subheader("ECDF Plot")
