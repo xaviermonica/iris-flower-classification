@@ -29,7 +29,7 @@ def visualize_page():
         "Scatter Plot", "Histogram", "Pair Plot", "Correlation Heatmap", 
         "Box Plot", "Violin Plot", "Strip Plot", "Swarm Plot",
         "Joint Plot", "Ridge Plot", "Hexbin Plot", "Lag Plot",
-        "Andrews Curves", "Count Plot", "Facet Grid", "Matrix Plot",
+         "Count Plot", "Facet Grid", "Matrix Plot",
         "Pair Grid", "Heatmap", "ECDF Plot", "KDE Plot"
     ])
 
