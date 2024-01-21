@@ -247,10 +247,14 @@ def visualize_page():
         st.subheader("KDE Plot")
         column = st.sidebar.selectbox("Select Column", df.columns[1:-1])
         
+        # Reshape the data for KDE plot
+        df_melted = df.melt(id_vars='Species', value_vars=[column], var_name='Feature', value_name='Value')
+        
         fig = plt.figure(figsize=(10, 6))
-        sns.kdeplot(df[column], hue=df['Species'], palette='viridis')
+        sns.kdeplot(data=df_melted, x='Value', hue='Species', palette='viridis')
         plt.title(f'KDE Plot of {column}')
         st.pyplot(fig)
+
 
     # Add a download button for the dataset
     st.sidebar.download_button(
