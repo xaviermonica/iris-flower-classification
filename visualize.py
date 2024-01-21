@@ -49,10 +49,11 @@ def visualize_page():
         st.subheader("Histogram")
         column = st.sidebar.selectbox("Select Column", df.columns[1:-1])
         
-        fig, ax = plt.subplots()
-        sns.histplot(df[column], bins=30, kde=True, hue=df['Species'], palette='viridis', ax=ax)
+        fig, ax = plt.subplots(figsize=(10, 6))
+        sns.histplot(df, x=column, bins=30, kde=True, hue='Species', palette='viridis', ax=ax)
         ax.set_title(f'Histogram of {column}')
         st.pyplot(fig)
+
     
     # Pair Plot
     elif plot_type == "Pair Plot":
