@@ -233,10 +233,14 @@ def visualize_page():
         st.subheader("ECDF Plot")
         column = st.sidebar.selectbox("Select Column", df.columns[1:-1])
         
+        # Reshape the data for ECDF plot
+        df_melted = df.melt(id_vars='Species', value_vars=[column], var_name='Feature', value_name='Value')
+        
         fig = plt.figure(figsize=(10, 6))
-        sns.ecdfplot(df[column], hue=df['Species'], palette='viridis')
+        sns.ecdfplot(data=df_melted, x='Value', hue='Species', palette='viridis')
         plt.title(f'ECDF Plot of {column}')
         st.pyplot(fig)
+
     
     # KDE Plot
     elif plot_type == "KDE Plot":
