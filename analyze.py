@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import LabelEncoder
 
 # Load the dataset
 @st.cache_data
@@ -14,24 +12,16 @@ def load_data():
     return df
 
 def analyze_page():
-    st.title("📊 Advanced Data Analysis")
-    st.write("Explore and analyze the Iris dataset using a range of advanced statistical techniques and visualizations.")
+    st.title("📊 Data Analysis")
+    st.write("Explore and analyze the Iris dataset using various statistical techniques and visualizations.")
 
     # Load the dataset
     df = load_data()
-
+    
     st.sidebar.header("Analysis Options")
     
     # Select analysis type
-    analysis_type = st.sidebar.selectbox("Choose Analysis Type", [
-        "Descriptive Statistics",
-        "Distribution Analysis",
-        "Correlation Analysis",
-        "Feature Importance",
-        "Pair Plot",
-        "Box Plot",
-        "Violin Plot"
-    ])
+    analysis_type = st.sidebar.selectbox("Choose Analysis Type", ["Descriptive Statistics", "Distribution Analysis", "Correlation Analysis", "Feature Importance"])
 
     if analysis_type == "Descriptive Statistics":
         st.subheader("Descriptive Statistics")
@@ -39,74 +29,41 @@ def analyze_page():
     
     elif analysis_type == "Distribution Analysis":
         st.subheader("Distribution Analysis")
-        column = st.sidebar.selectbox("Select Column", df.columns[:-1])
+        column = st.sidebar.selectbox("Select Column", df.columns[1:-1])
         
-        fig, ax = plt.subplots(figsize=(12, 6))
-        sns.histplot(data=df, x=column, kde=True, hue='Species', palette='viridis', ax=ax)
-        ax.set_title(f'Distribution of {column}', fontsize=16)
-        ax.set_xlabel(column, fontsize=14)
-        ax.set_ylabel('Frequency', fontsize=14)
+        fig, ax = plt.subplots(figsize=(10, 6))
+        sns.histplot(data=df, x=column, kde=True, palette='viridis', ax=ax, hue='Species')
+        ax.set_title(f'Distribution of {column}')
         st.pyplot(fig)
         
     elif analysis_type == "Correlation Analysis":
         st.subheader("Correlation Analysis")
         
-        correlation_matrix = df.drop('Species', axis=1).corr()
-        fig, ax = plt.subplots(figsize=(12, 10))
-        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax, fmt='.2f', linewidths=0.5, vmin=-1, vmax=1)
-        ax.set_title('Correlation Heatmap', fontsize=16)
+        correlation_matrix = df.iloc[:, 1:-1].corr()
+        fig, ax = plt.subplots(figsize=(10, 8))
+        sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax, fmt='.2f', linewidths=0.5)
+        ax.set_title('Correlation Heatmap')
         st.pyplot(fig)
-
+    
     elif analysis_type == "Feature Importance":
         st.subheader("Feature Importance (Using Random Forest)")
+        from sklearn.ensemble import RandomForestClassifier
         
-        X = df.drop('Species', axis=1)
+        X = df.iloc[:, 1:-1]
         y = df['Species']
         
-        # Encode categorical target variable
-        le = LabelEncoder()
-        y_encoded = le.fit_transform(y)
-        
-        model = RandomForestClassifier(n_estimators=100, random_state=42)
-        model.fit(X, y_encoded)
+        model = RandomForestClassifier()
+        model.fit(X, y)
         importances = model.feature_importances_
         
         feature_importances = pd.DataFrame(importances, index=X.columns, columns=['Importance']).sort_values('Importance', ascending=False)
         
         st.write(feature_importances.style.background_gradient(cmap='viridis').highlight_max(axis=0, color='lightpink'))
-        fig, ax = plt.subplots(figsize=(12, 6))
+        fig, ax = plt.subplots(figsize=(10, 6))
         sns.barplot(x=feature_importances.index, y='Importance', data=feature_importances, palette='viridis', ax=ax)
-        ax.set_title('Feature Importance', fontsize=16)
-        ax.set_xlabel('Feature', fontsize=14)
-        ax.set_ylabel('Importance', fontsize=14)
-        st.pyplot(fig)
-
-    elif analysis_type == "Pair Plot":
-        st.subheader("Pair Plot")
-        
-        fig = sns.pairplot(df, hue='Species', palette='viridis')
+        ax.set_title('Feature Importance')
+        ax.set_xlabel('Feature')
+        ax.set_ylabel('Importance')
         st.pyplot(fig)
     
-    elif analysis_type == "Box Plot":
-        st.subheader("Box Plot")
-        column = st.sidebar.selectbox("Select Column for Box Plot", df.columns[:-1])
-        
-        fig, ax = plt.subplots(figsize=(12, 6))
-        sns.boxplot(x='Species', y=column, data=df, palette='viridis', ax=ax)
-        ax.set_title(f'Box Plot of {column}', fontsize=16)
-        ax.set_xlabel('Species', fontsize=14)
-        ax.set_ylabel(column, fontsize=14)
-        st.pyplot(fig)
-
-    elif analysis_type == "Violin Plot":
-        st.subheader("Violin Plot")
-        column = st.sidebar.selectbox("Select Column for Violin Plot", df.columns[:-1])
-        
-        fig, ax = plt.subplots(figsize=(12, 6))
-        sns.violinplot(x='Species', y=column, data=df, palette='viridis', ax=ax)
-        ax.set_title(f'Violin Plot of {column}', fontsize=16)
-        ax.set_xlabel('Species', fontsize=14)
-        ax.set_ylabel(column, fontsize=14)
-        st.pyplot(fig)
-    
-    st.write("Explore different analysis options to gain deeper insights into the Iris dataset.")
+    st.write("Feel free to select different options to gain insights into the Iris dataset.")
