@@ -32,7 +32,7 @@ def analyze_page():
         column = st.sidebar.selectbox("Select Column", df.columns[1:-1])
         
         fig, ax = plt.subplots(figsize=(10, 6))
-        sns.histplot(df[column], kde=True, hue='Species', palette='viridis', ax=ax)
+        sns.histplot(data=df, x=column, kde=True, palette='viridis', ax=ax, hue='Species')
         ax.set_title(f'Distribution of {column}')
         st.pyplot(fig)
         
@@ -67,4 +67,3 @@ def analyze_page():
         st.pyplot(fig)
     
     st.write("Feel free to select different options to gain insights into the Iris dataset.")
-
