@@ -12,7 +12,7 @@ def load_data():
     return df
 
 def analyze_page():
-    st.title("📊 advanced Data Analysis")
+    st.title("📊 Advanced Data Analysis")
     st.write("Explore and analyze the Iris dataset using various statistical techniques and visualizations.")
 
     # Load the dataset
