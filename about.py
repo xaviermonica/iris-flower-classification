@@ -12,7 +12,7 @@ def about_page():
         }
         .description {
             font-size: 18px;
-            color: #333;
+            color: #eddada;
             text-align: center;
             margin: 20px;
         }
