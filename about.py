@@ -21,7 +21,7 @@ def about_page():
             font-weight: bold;
         }
         .content {
-            background-color: #061a38;
+            background-color: #041329;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
