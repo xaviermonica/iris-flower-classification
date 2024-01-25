@@ -30,7 +30,7 @@ def about_page():
     """, unsafe_allow_html=True)
 
     # Title with custom styling
-    st.markdown('<h1 class="title">About This App</h1>', unsafe_allow_html=True)
+    
     
     # Main description with custom styling
     st.markdown("""
