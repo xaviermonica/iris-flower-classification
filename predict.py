@@ -9,7 +9,7 @@ model = joblib.load("Iris_RF.pkl")
 
 def predict_page():
     # Set the page title and layout
-    st.title("🌺 **Iris Species Prediction** 🌺")
+    
 
     # Sidebar header
     st.sidebar.header("🔧 **Input Features**")
