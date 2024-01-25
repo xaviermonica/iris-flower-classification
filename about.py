@@ -30,7 +30,7 @@ def about_page():
     """, unsafe_allow_html=True)
 
     # Title with custom styling
-    
+
     
     # Main description with custom styling
     st.markdown("""
@@ -48,7 +48,7 @@ def about_page():
                 </ul>
             </p>
             <p class="description">
-                This app was developed by <span class="highlight">Devanik</span> and <span class="highlight">Niki</span> (ChatGPT) to showcase advanced data science and machine learning techniques.
+                This app was developed by <span class="highlight"><a href="https://www.linkedin.com/in/devanik/" style="color: #4A90E2;">Devanik</a></span> and <span class="highlight">Niki</span> (ChatGPT) to showcase advanced data science and machine learning techniques.
             </p>
         </div>
     """, unsafe_allow_html=True)
