@@ -66,4 +66,4 @@ def predict_page():
         """,
         unsafe_allow_html=True
     )
-    st.title("🌸 Iris Species gallery 🌸")
+    st.title("🌸 Iris Species 🌸")
