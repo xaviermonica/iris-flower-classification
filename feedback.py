@@ -31,7 +31,7 @@ def feedback_page():
     )
 
     # Title with emoji
-    st.title("💬 Feedback")
+ 
 
     # Subtitle with color
     st.markdown(
