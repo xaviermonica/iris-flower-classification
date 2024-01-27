@@ -52,7 +52,7 @@ if options == "🏠 Home":
     st.markdown(
         """
         <div style="
-        background-color: #bf8e8e; 
+        background-color: #d6abab; 
         padding: 40px;
         border-radius: 15px;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
