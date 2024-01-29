@@ -16,9 +16,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.set_page_config(page_title="Iris Species Prediction App", page_icon="🌸", layout="wide")
-
-
 st.sidebar.image("iris4.jpg", use_column_width=True)
 
 # Sidebar Navigation with emojis 🌸 using Selectbox
