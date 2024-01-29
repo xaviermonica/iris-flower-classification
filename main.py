@@ -18,12 +18,11 @@ st.markdown("""
 
 import streamlit as st
 
-# Set the page configuration
-st.set_page_config(
-    page_title="Iris Species Prediction App",
-    page_icon=":blossom:",  # Unicode emoji or path to an image file
-    layout="wide"  # Options are 'centered' (default) or 'wide'
-)
+# Set the page title and icon using HTML
+st.markdown("""
+    <title>Iris Species Prediction App</title>
+    <link rel="icon" href="iris1.jpg" type="image/jpg">
+""", unsafe_allow_html=True)
 
 
 st.sidebar.image("iris4.jpg", use_column_width=True)
