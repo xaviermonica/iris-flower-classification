@@ -16,13 +16,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-import streamlit as st
-
-# Set the page title and icon using HTML
-st.markdown("""
-    <title>Iris Species Prediction App</title>
-    <link rel="icon" href="iris1.jpg" type="image/jpg">
-""", unsafe_allow_html=True)
+st.set_page_config(page_title="Iris Species Prediction App", page_icon="🌸", layout="wide")
 
 
 st.sidebar.image("iris4.jpg", use_column_width=True)
