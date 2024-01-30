@@ -33,6 +33,7 @@ options = st.sidebar.selectbox(
 # Navigation logic based on selectbox value
 if options == "🏠 Home":
     # Professional Title with Gradient and Center Alignment
+    st.set_page_config(page_title="Iris Species Prediction App", page_icon="🌸", layout="wide")
     st.markdown(
         """
         <h1 style='text-align: center;
