@@ -4,6 +4,9 @@ from analyze import analyze_page
 from predict import predict_page
 from about import about_page
 from feedback import feedback_page
+
+st.set_page_config(page_title="Iris Species Prediction App", page_icon="🌸", layout="wide")
+
 # Set app theme color using markdown styling
 st.markdown("""
     <style>
@@ -33,7 +36,7 @@ options = st.sidebar.selectbox(
 # Navigation logic based on selectbox value
 if options == "🏠 Home":
     # Professional Title with Gradient and Center Alignment
-    st.set_page_config(page_title="Iris Species Prediction App", page_icon="🌸", layout="wide")
+    
     st.markdown(
         """
         <h1 style='text-align: center;
